@@ -136,20 +136,7 @@ namespace gerenciador_dispensa
             else {
                 MessageBox.Show("Por favor preencha todos os campos!", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //String query = "insert into tb_dispensa (data, assist, colab, total) " +
-            //    "values " +
-            //    "(default, )";
-            //try
-            //{
-
-            //    BDConnection conn = BDConnection.getInstance();
-            //    MySqlDataAdapter cmd = new MySqlDataAdapter(query, conn.GetConnection());
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.StackTrace);
-            //}
+       
         }
 
         private void label15_Click(object sender, EventArgs e)
