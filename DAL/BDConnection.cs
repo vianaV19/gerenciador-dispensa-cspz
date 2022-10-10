@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace gerenciador_dispensa
+namespace DAL
 {
 
     using MySql.Data.MySqlClient;

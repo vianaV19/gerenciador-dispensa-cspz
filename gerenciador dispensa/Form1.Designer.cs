@@ -79,6 +79,7 @@
             this.incluir_btn = new System.Windows.Forms.Button();
             this.total_txt = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
+            this.limpar_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dispensa_dtgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acomp_dtgv)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -560,11 +561,22 @@
             this.label22.TabIndex = 48;
             this.label22.Text = "Total";
             // 
+            // limpar_btn
+            // 
+            this.limpar_btn.Location = new System.Drawing.Point(1023, 541);
+            this.limpar_btn.Name = "limpar_btn";
+            this.limpar_btn.Size = new System.Drawing.Size(148, 73);
+            this.limpar_btn.TabIndex = 50;
+            this.limpar_btn.Text = "Limpar";
+            this.limpar_btn.UseVisualStyleBackColor = true;
+            this.limpar_btn.Click += new System.EventHandler(this.limpar_btn_Click);
+            // 
             // CentroSocial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 705);
+            this.Controls.Add(this.limpar_btn);
             this.Controls.Add(this.total_txt);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.incluir_btn);
@@ -681,5 +693,6 @@
         private Button incluir_btn;
         private TextBox total_txt;
         private Label label22;
+        private Button limpar_btn;
     }
 }

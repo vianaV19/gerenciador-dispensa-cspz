@@ -5,6 +5,7 @@ namespace gerenciador_dispensa
 {
     using System.Data;
     using MySql.Data.MySqlClient;
+    using BLL;
     public partial class CentroSocial : Form
     {
         public CentroSocial()
@@ -31,16 +32,13 @@ namespace gerenciador_dispensa
 
         private void CentroSocial_Load(object sender, EventArgs e)
         {
-            string query = "select data, assist, colab, total, proteina, qntd_proteina, sobremesa, qntd_sobremesa from tb_dispensa";
-            DataSet dataSet = new DataSet();
+           
 
             try {
 
-                BDConnection conn = BDConnection.getInstance();
-                MySqlDataAdapter cmd = new MySqlDataAdapter(query, conn.GetConnection());
+                string query = "select data, assist, colab, total, proteina, qntd_proteina, sobremesa, qntd_sobremesa from tb_dispensa";
 
-                cmd.Fill(dataSet, "tb_dispensa");
-                dispensa_dtgv.DataSource = dataSet;
+                dispensa_dtgv.DataSource = ;
                 dispensa_dtgv.DataMember = "tb_dispensa";
 
                 query = "select d.data, a.acompanhamento, a.qntd from tb_acompanhamento as a inner join tb_dispensa as d on(d.id = a.id_dispensa)";
@@ -142,6 +140,26 @@ namespace gerenciador_dispensa
         private void label15_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void limpar_btn_Click(object sender, EventArgs e)
+        {
+            //limpando valores
+            assist_txt.Text = "";
+            colab_txt.Text = "";
+            total_txt.Text = "";
+            projetos_txt.Text = "";
+            proteina_txt.Text = "";
+            proteinaQntd_txt.Text = "";
+            sobremesa_txt.Text = "";
+            sobremesaQntd_txt.Text = "";
+            acompanhamento_txt.Text = "";
+            acompanhamentoQntd_txt.Text = "";
+            guarnicao_txt.Text = "";
+            guarnicaoQntd_txt.Text = "";
+            lanche_txt.Text = "";
+            lancheQntd_txt.Text = "";
+            turno_txt.Text = "";       
         }
     }
 }
