@@ -65,6 +65,7 @@
             this.dispAcomp_dtgv = new System.Windows.Forms.DataGridView();
             this.protGuarni_dtgv = new System.Windows.Forms.DataGridView();
             this.sobLanche_dtgv = new System.Windows.Forms.DataGridView();
+            this.title_lbl = new System.Windows.Forms.Label();
             this.inputs_flyt.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -498,11 +499,22 @@
             this.sobLanche_dtgv.Size = new System.Drawing.Size(406, 98);
             this.sobLanche_dtgv.TabIndex = 2;
             // 
+            // title_lbl
+            // 
+            this.title_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.title_lbl.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title_lbl.Location = new System.Drawing.Point(524, 9);
+            this.title_lbl.Name = "title_lbl";
+            this.title_lbl.Size = new System.Drawing.Size(441, 45);
+            this.title_lbl.TabIndex = 10;
+            this.title_lbl.Text = "Inserção de dados";
+            // 
             // DispensaGUI
             // 
             this.ClientSize = new System.Drawing.Size(984, 378);
             this.Controls.Add(this.dataview_flyt);
             this.Controls.Add(this.inputs_flyt);
+            this.Controls.Add(this.title_lbl);
             this.MinimumSize = new System.Drawing.Size(1000, 417);
             this.Name = "DispensaGUI";
             this.Text = " ";
@@ -587,6 +599,7 @@
         private System.Windows.Forms.DataGridView dispAcomp_dtgv;
         private System.Windows.Forms.DataGridView protGuarni_dtgv;
         private System.Windows.Forms.DataGridView sobLanche_dtgv;
+        private System.Windows.Forms.Label title_lbl;
     }
 }
 

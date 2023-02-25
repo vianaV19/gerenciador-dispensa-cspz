@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using MySql.Data.MySqlClient;
+using BLL;
 
 namespace GerenciadorDispensa
 {
     public partial class DispensaGUI : Form
     {
+
+        private CentroBLL c = new CentroBLL();
 
         private Color placeholder = SystemColors.ButtonShadow;
 
@@ -28,8 +33,40 @@ namespace GerenciadorDispensa
 
         private void DispensaGUI_Load(object sender, EventArgs e)
         {
-     
-        }
+            try
+            {
+
+                string query = "select data, assist, colab, total from tb_dispensa";
+
+                dispAcomp_dtgv.DataSource = c.consulta("tb_dispensa");
+                dispAcomp_dtgv.DataMember = "tb_dispensa";
+                dispAcomp_dtgv.AutoSize = true;
+
+                //query = "select d.data, a.acompanhamento, a.qntd from tb_acompanhamento as a inner join tb_dispensa as d on(d.id = a.id_dispensa)";
+
+                //acomp_dtgv.DataSource = c.consultaComQuery(query, "tb_acompanhamento");
+                //acomp_dtgv.DataMember = "tb_acompanhamento";
+                //acomp_dtgv.AutoSize = true;
+
+                //query = "select d.data, g.guarnicao, g.qntd from tb_guarnicao as g inner join tb_dispensa as d on(d.id = g.id_dispensa)";
+
+
+                //guarnicao_dtgv.DataSource = c.consultaComQuery(query, "tb_guarnicao");
+                //guarnicao_dtgv.DataMember = "tb_guarnicao";
+                //guarnicao_dtgv.AutoSize = true;
+
+                //query = "select d.data, l.lanche, l.turno, l.qntd from tb_lanche as l inner join tb_dispensa as d on(d.id = l.id_dispensa)";
+
+                //lanche_dtgv.DataSource = c.consultaComQuery(query, "tb_lanche"); ;
+                //lanche_dtgv.DataMember = "tb_lanche";
+                //lanche_dtgv.AutoSize = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }   
 
       
 
