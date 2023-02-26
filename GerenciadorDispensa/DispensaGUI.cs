@@ -22,31 +22,34 @@ namespace GerenciadorDispensa
 
         //dataview dynamic size offsets
         private int offsetW = 50;
-        private int offsetH = 65;
+        private int offsetH = 80;
       
         public DispensaGUI()
         {
             InitializeComponent();
+
+            dispensa_dtgv.AutoSize = false;
 
         }
 
 
         private void DispensaGUI_Load(object sender, EventArgs e)
         {
+
             try
             {
 
-                string query = "select data, assist, colab, total from tb_dispensa";
+                string query = "select data, assist, colab, total from tb_dispensa; ";
 
-                dispAcomp_dtgv.DataSource = c.consulta("tb_dispensa");
-                dispAcomp_dtgv.DataMember = "tb_dispensa";
-                dispAcomp_dtgv.AutoSize = true;
+                dispensa_dtgv.DataSource = c.consultaComQuery(query, "tb_dispensa");
+                dispensa_dtgv.DataMember = "tb_dispensa";
+                dispensa_dtgv.AutoSize = true;
 
-                //query = "select d.data, a.acompanhamento, a.qntd from tb_acompanhamento as a inner join tb_dispensa as d on(d.id = a.id_dispensa)";
+                query = "select d.data, a.acompanhamento, a.qntd, g.guarnicao, g.qntd, l.lanche, l.turno, l.qntd from tb_acompanhamento as a inner join tb_dispensa d inner join tb_guarnicao g inner join tb_lanche l";
 
-                //acomp_dtgv.DataSource = c.consultaComQuery(query, "tb_acompanhamento");
-                //acomp_dtgv.DataMember = "tb_acompanhamento";
-                //acomp_dtgv.AutoSize = true;
+                acompGuarnLanche_dtgv.DataSource = c.consultaComQuery(query, "tb_acompanhamento");
+                acompGuarnLanche_dtgv.DataMember = "tb_acompanhamento";
+                acompGuarnLanche_dtgv.AutoSize = true;
 
                 //query = "select d.data, g.guarnicao, g.qntd from tb_guarnicao as g inner join tb_dispensa as d on(d.id = g.id_dispensa)";
 
@@ -73,6 +76,7 @@ namespace GerenciadorDispensa
         private void DispensaGUI_Resize(object sender, EventArgs e)
         {
             dataview_flyt.Size = new Size(Width - (inputs_flyt.Width + offsetW), Height - offsetH);
+          
         }
 
         private void qntdEnter(object sender, EventArgs e)
@@ -112,19 +116,34 @@ namespace GerenciadorDispensa
             }
         }
 
-        private void acompQntd_txt_TextChanged(object sender, EventArgs e)
+        private void placeholderLancheLeave(object sender, EventArgs e)
         {
+            TextBox t = (TextBox)sender;
 
+            if (t.Text == "" || t.Text.Trim() == "") {
+                t.ForeColor = SystemColors.ButtonShadow;
+
+                if (t.Name == "lancheM_txt")
+                    t.Text = "manha...";
+                else
+                    t.Text = "tarde...";
+            }
+        
         }
 
-        private void dataviewResize(object sender, EventArgs e) {
 
+
+
+        private void datagridviewResize(object sender, EventArgs e)
+        {
             int w = dataview_flyt.Width;
-            int h = dataview_flyt.Height / 3;
+            int h = dataview_flyt.Height / 2;
 
-            dispAcomp_dtgv.Size = new Size(w, h);
-            protGuarni_dtgv.Size = new Size(w, h);
-            sobLanche_dtgv.Size = new Size(w, h);
+            Control c = (Control)sender;
+
+            c.Size = new Size(w, h);
+
+            if (c.Name == "acompGuarnLanche_dtgv") c.Location = new Point(0, dispensa_dtgv.Size.Height);
         }
     }
 }

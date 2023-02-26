@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.assist_txt = new System.Windows.Forms.TextBox();
             this.inputs_flyt = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -62,10 +68,17 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lancheM_txt = new System.Windows.Forms.TextBox();
             this.dataview_flyt = new System.Windows.Forms.FlowLayoutPanel();
-            this.dispAcomp_dtgv = new System.Windows.Forms.DataGridView();
-            this.protGuarni_dtgv = new System.Windows.Forms.DataGridView();
-            this.sobLanche_dtgv = new System.Windows.Forms.DataGridView();
+            this.dispensa_dtgv = new System.Windows.Forms.DataGridView();
+            this.acompGuarnLanche_dtgv = new System.Windows.Forms.DataGridView();
             this.title_lbl = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearText_btn = new System.Windows.Forms.Button();
+            this.saveData_btn = new System.Windows.Forms.Button();
+            this.filtros_lbl = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.filter_btn = new System.Windows.Forms.Button();
             this.inputs_flyt.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -77,9 +90,9 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.dataview_flyt.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dispAcomp_dtgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.protGuarni_dtgv)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sobLanche_dtgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dispensa_dtgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acompGuarnLanche_dtgv)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // assist_txt
@@ -103,10 +116,10 @@
             this.inputs_flyt.Controls.Add(this.panel3);
             this.inputs_flyt.Controls.Add(this.panel4);
             this.inputs_flyt.Controls.Add(this.panel5);
-            this.inputs_flyt.Location = new System.Drawing.Point(523, 54);
+            this.inputs_flyt.Location = new System.Drawing.Point(526, 74);
             this.inputs_flyt.Margin = new System.Windows.Forms.Padding(0);
             this.inputs_flyt.Name = "inputs_flyt";
-            this.inputs_flyt.Size = new System.Drawing.Size(449, 304);
+            this.inputs_flyt.Size = new System.Drawing.Size(449, 226);
             this.inputs_flyt.TabIndex = 4;
             // 
             // flowLayoutPanel2
@@ -246,7 +259,6 @@
             this.acompQntd_txt.Size = new System.Drawing.Size(40, 22);
             this.acompQntd_txt.TabIndex = 2;
             this.acompQntd_txt.Text = "qntd...";
-            this.acompQntd_txt.TextChanged += new System.EventHandler(this.acompQntd_txt_TextChanged);
             this.acompQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
             this.acompQntd_txt.Leave += new System.EventHandler(this.qntdLeave);
             // 
@@ -429,6 +441,7 @@
             this.lancheT_txt.Text = "tarde...";
             this.lancheT_txt.WordWrap = false;
             this.lancheT_txt.Enter += new System.EventHandler(this.placeholderEnter);
+            this.lancheT_txt.Leave += new System.EventHandler(this.placeholderLancheLeave);
             // 
             // label9
             // 
@@ -455,69 +468,210 @@
             this.lancheM_txt.Text = "manha...";
             this.lancheM_txt.WordWrap = false;
             this.lancheM_txt.Enter += new System.EventHandler(this.placeholderEnter);
+            this.lancheM_txt.Leave += new System.EventHandler(this.placeholderLancheLeave);
             // 
             // dataview_flyt
             // 
             this.dataview_flyt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dataview_flyt.Controls.Add(this.dispAcomp_dtgv);
-            this.dataview_flyt.Controls.Add(this.protGuarni_dtgv);
-            this.dataview_flyt.Controls.Add(this.sobLanche_dtgv);
-            this.dataview_flyt.Location = new System.Drawing.Point(12, 12);
+            this.dataview_flyt.Controls.Add(this.dispensa_dtgv);
+            this.dataview_flyt.Controls.Add(this.acompGuarnLanche_dtgv);
+            this.dataview_flyt.Location = new System.Drawing.Point(12, 37);
             this.dataview_flyt.Margin = new System.Windows.Forms.Padding(0);
             this.dataview_flyt.Name = "dataview_flyt";
-            this.dataview_flyt.Size = new System.Drawing.Size(407, 346);
+            this.dataview_flyt.Size = new System.Drawing.Size(407, 341);
             this.dataview_flyt.TabIndex = 5;
-            this.dataview_flyt.Resize += new System.EventHandler(this.dataviewResize);
             // 
-            // dispAcomp_dtgv
+            // dispensa_dtgv
             // 
-            this.dispAcomp_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dispAcomp_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dispAcomp_dtgv.Location = new System.Drawing.Point(0, 0);
-            this.dispAcomp_dtgv.Margin = new System.Windows.Forms.Padding(0);
-            this.dispAcomp_dtgv.Name = "dispAcomp_dtgv";
-            this.dispAcomp_dtgv.Size = new System.Drawing.Size(406, 95);
-            this.dispAcomp_dtgv.TabIndex = 0;
+            this.dispensa_dtgv.AllowUserToAddRows = false;
+            this.dispensa_dtgv.AllowUserToDeleteRows = false;
+            this.dispensa_dtgv.AllowUserToResizeColumns = false;
+            this.dispensa_dtgv.AllowUserToResizeRows = false;
+            this.dispensa_dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dispensa_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dispensa_dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dispensa_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dispensa_dtgv.ColumnHeadersHeight = 25;
+            this.dispensa_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dispensa_dtgv.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dispensa_dtgv.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dispensa_dtgv.GridColor = System.Drawing.SystemColors.GrayText;
+            this.dispensa_dtgv.Location = new System.Drawing.Point(0, 0);
+            this.dispensa_dtgv.Margin = new System.Windows.Forms.Padding(0);
+            this.dispensa_dtgv.Name = "dispensa_dtgv";
+            this.dispensa_dtgv.ReadOnly = true;
+            this.dispensa_dtgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dispensa_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dispensa_dtgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dispensa_dtgv.Size = new System.Drawing.Size(406, 95);
+            this.dispensa_dtgv.TabIndex = 0;
+            this.dispensa_dtgv.Resize += new System.EventHandler(this.datagridviewResize);
             // 
-            // protGuarni_dtgv
+            // acompGuarnLanche_dtgv
             // 
-            this.protGuarni_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.protGuarni_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.protGuarni_dtgv.Location = new System.Drawing.Point(0, 95);
-            this.protGuarni_dtgv.Margin = new System.Windows.Forms.Padding(0);
-            this.protGuarni_dtgv.Name = "protGuarni_dtgv";
-            this.protGuarni_dtgv.Size = new System.Drawing.Size(406, 98);
-            this.protGuarni_dtgv.TabIndex = 1;
-            // 
-            // sobLanche_dtgv
-            // 
-            this.sobLanche_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.sobLanche_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sobLanche_dtgv.Location = new System.Drawing.Point(0, 193);
-            this.sobLanche_dtgv.Margin = new System.Windows.Forms.Padding(0);
-            this.sobLanche_dtgv.Name = "sobLanche_dtgv";
-            this.sobLanche_dtgv.Size = new System.Drawing.Size(406, 98);
-            this.sobLanche_dtgv.TabIndex = 2;
+            this.acompGuarnLanche_dtgv.AllowUserToAddRows = false;
+            this.acompGuarnLanche_dtgv.AllowUserToDeleteRows = false;
+            this.acompGuarnLanche_dtgv.AllowUserToResizeColumns = false;
+            this.acompGuarnLanche_dtgv.AllowUserToResizeRows = false;
+            this.acompGuarnLanche_dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.acompGuarnLanche_dtgv.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.acompGuarnLanche_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.acompGuarnLanche_dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.acompGuarnLanche_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.acompGuarnLanche_dtgv.ColumnHeadersHeight = 28;
+            this.acompGuarnLanche_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.acompGuarnLanche_dtgv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.acompGuarnLanche_dtgv.Location = new System.Drawing.Point(0, 95);
+            this.acompGuarnLanche_dtgv.Margin = new System.Windows.Forms.Padding(0);
+            this.acompGuarnLanche_dtgv.Name = "acompGuarnLanche_dtgv";
+            this.acompGuarnLanche_dtgv.ReadOnly = true;
+            this.acompGuarnLanche_dtgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.acompGuarnLanche_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.acompGuarnLanche_dtgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acompGuarnLanche_dtgv.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.acompGuarnLanche_dtgv.Size = new System.Drawing.Size(406, 98);
+            this.acompGuarnLanche_dtgv.TabIndex = 1;
+            this.acompGuarnLanche_dtgv.Resize += new System.EventHandler(this.datagridviewResize);
             // 
             // title_lbl
             // 
             this.title_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.title_lbl.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.title_lbl.Location = new System.Drawing.Point(524, 9);
+            this.title_lbl.Location = new System.Drawing.Point(527, 29);
             this.title_lbl.Name = "title_lbl";
             this.title_lbl.Size = new System.Drawing.Size(441, 45);
             this.title_lbl.TabIndex = 10;
             this.title_lbl.Text = "Inserção de dados";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ajudaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // ajudaToolStripMenuItem
+            // 
+            this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.ajudaToolStripMenuItem.Text = "Ajuda";
+            // 
+            // clearText_btn
+            // 
+            this.clearText_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearText_btn.Location = new System.Drawing.Point(529, 303);
+            this.clearText_btn.Name = "clearText_btn";
+            this.clearText_btn.Size = new System.Drawing.Size(96, 33);
+            this.clearText_btn.TabIndex = 12;
+            this.clearText_btn.Text = "Limpar";
+            this.clearText_btn.UseVisualStyleBackColor = true;
+            // 
+            // saveData_btn
+            // 
+            this.saveData_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveData_btn.Location = new System.Drawing.Point(872, 303);
+            this.saveData_btn.Name = "saveData_btn";
+            this.saveData_btn.Size = new System.Drawing.Size(96, 33);
+            this.saveData_btn.TabIndex = 13;
+            this.saveData_btn.Text = "Salvar";
+            this.saveData_btn.UseVisualStyleBackColor = true;
+            // 
+            // filtros_lbl
+            // 
+            this.filtros_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filtros_lbl.Font = new System.Drawing.Font("Arial Narrow", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filtros_lbl.Location = new System.Drawing.Point(525, 348);
+            this.filtros_lbl.Name = "filtros_lbl";
+            this.filtros_lbl.Size = new System.Drawing.Size(441, 45);
+            this.filtros_lbl.TabIndex = 14;
+            this.filtros_lbl.Text = "Filtrar";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(532, 412);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 15;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(532, 389);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 20);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Dia:";
+            // 
+            // filter_btn
+            // 
+            this.filter_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filter_btn.Location = new System.Drawing.Point(872, 405);
+            this.filter_btn.Name = "filter_btn";
+            this.filter_btn.Size = new System.Drawing.Size(96, 33);
+            this.filter_btn.TabIndex = 17;
+            this.filter_btn.Text = "Filtrar";
+            this.filter_btn.UseVisualStyleBackColor = true;
+            // 
             // DispensaGUI
             // 
-            this.ClientSize = new System.Drawing.Size(984, 378);
+            this.ClientSize = new System.Drawing.Size(984, 472);
+            this.Controls.Add(this.filter_btn);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.filtros_lbl);
+            this.Controls.Add(this.saveData_btn);
+            this.Controls.Add(this.clearText_btn);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataview_flyt);
             this.Controls.Add(this.inputs_flyt);
             this.Controls.Add(this.title_lbl);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1000, 417);
             this.Name = "DispensaGUI";
-            this.Text = " ";
+            this.Text = "Gerenciador Dispensa - CSPZ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.DispensaGUI_Load);
             this.Resize += new System.EventHandler(this.DispensaGUI_Resize);
@@ -541,10 +695,12 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.dataview_flyt.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dispAcomp_dtgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.protGuarni_dtgv)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sobLanche_dtgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dispensa_dtgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.acompGuarnLanche_dtgv)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -596,10 +752,17 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox lancheM_txt;
         private System.Windows.Forms.TextBox lancheT_txt;
-        private System.Windows.Forms.DataGridView dispAcomp_dtgv;
-        private System.Windows.Forms.DataGridView protGuarni_dtgv;
-        private System.Windows.Forms.DataGridView sobLanche_dtgv;
+        private System.Windows.Forms.DataGridView dispensa_dtgv;
+        private System.Windows.Forms.DataGridView acompGuarnLanche_dtgv;
         private System.Windows.Forms.Label title_lbl;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ajudaToolStripMenuItem;
+        private System.Windows.Forms.Button clearText_btn;
+        private System.Windows.Forms.Button saveData_btn;
+        private System.Windows.Forms.Label filtros_lbl;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button filter_btn;
     }
 }
 

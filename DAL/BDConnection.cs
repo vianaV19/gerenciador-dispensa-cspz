@@ -13,7 +13,7 @@ namespace DAL
     {
 
         private static BDConnection instance;
-        private string _conexaoMySQL = "server=localhost;user id=root;password='';database=cspz;convert zero datetime=True"; 
+        private string _conexaoMySQL = "server=localhost;user id=root;password='';database=cspz;"; 
         private BDConnection() { }
 
         public static BDConnection getInstance()
