@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.assist_txt = new System.Windows.Forms.TextBox();
             this.inputs_flyt = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -76,9 +76,13 @@
             this.clearText_btn = new System.Windows.Forms.Button();
             this.saveData_btn = new System.Windows.Forms.Button();
             this.filtros_lbl = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.diafilter_cbx = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.filter_btn = new System.Windows.Forms.Button();
+            this.mesfilter_lbl = new System.Windows.Forms.Label();
+            this.mesfilter_cbx = new System.Windows.Forms.ComboBox();
+            this.lancheMQntd_txt = new System.Windows.Forms.TextBox();
+            this.lancheTQntd_txt = new System.Windows.Forms.TextBox();
             this.inputs_flyt.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -344,9 +348,9 @@
             // 
             this.guarnicaoQntd_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guarnicaoQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.guarnicaoQntd_txt.Location = new System.Drawing.Point(102, 38);
+            this.guarnicaoQntd_txt.Location = new System.Drawing.Point(94, 38);
             this.guarnicaoQntd_txt.Name = "guarnicaoQntd_txt";
-            this.guarnicaoQntd_txt.Size = new System.Drawing.Size(32, 22);
+            this.guarnicaoQntd_txt.Size = new System.Drawing.Size(40, 22);
             this.guarnicaoQntd_txt.TabIndex = 2;
             this.guarnicaoQntd_txt.Text = "qntd...";
             this.guarnicaoQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
@@ -371,7 +375,7 @@
             this.guarnicao_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guarnicao_txt.Location = new System.Drawing.Point(3, 38);
             this.guarnicao_txt.Name = "guarnicao_txt";
-            this.guarnicao_txt.Size = new System.Drawing.Size(93, 22);
+            this.guarnicao_txt.Size = new System.Drawing.Size(85, 22);
             this.guarnicao_txt.TabIndex = 1;
             this.guarnicao_txt.WordWrap = false;
             // 
@@ -389,9 +393,9 @@
             // 
             this.sobremesaQntd_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sobremesaQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.sobremesaQntd_txt.Location = new System.Drawing.Point(102, 38);
+            this.sobremesaQntd_txt.Location = new System.Drawing.Point(96, 38);
             this.sobremesaQntd_txt.Name = "sobremesaQntd_txt";
-            this.sobremesaQntd_txt.Size = new System.Drawing.Size(36, 22);
+            this.sobremesaQntd_txt.Size = new System.Drawing.Size(42, 22);
             this.sobremesaQntd_txt.TabIndex = 2;
             this.sobremesaQntd_txt.Text = "qntd...";
             this.sobremesaQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
@@ -416,30 +420,33 @@
             this.sobremesa_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sobremesa_txt.Location = new System.Drawing.Point(3, 38);
             this.sobremesa_txt.Name = "sobremesa_txt";
-            this.sobremesa_txt.Size = new System.Drawing.Size(93, 22);
+            this.sobremesa_txt.Size = new System.Drawing.Size(87, 22);
             this.sobremesa_txt.TabIndex = 1;
             this.sobremesa_txt.WordWrap = false;
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.lancheTQntd_txt);
+            this.panel5.Controls.Add(this.lancheMQntd_txt);
             this.panel5.Controls.Add(this.lancheT_txt);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.lancheM_txt);
             this.panel5.Location = new System.Drawing.Point(148, 141);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(148, 74);
+            this.panel5.Size = new System.Drawing.Size(245, 74);
             this.panel5.TabIndex = 9;
             // 
             // lancheT_txt
             // 
             this.lancheT_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lancheT_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lancheT_txt.Location = new System.Drawing.Point(76, 38);
+            this.lancheT_txt.Location = new System.Drawing.Point(120, 38);
             this.lancheT_txt.Name = "lancheT_txt";
             this.lancheT_txt.Size = new System.Drawing.Size(67, 22);
             this.lancheT_txt.TabIndex = 2;
             this.lancheT_txt.Text = "tarde...";
             this.lancheT_txt.WordWrap = false;
+            this.lancheT_txt.TextChanged += new System.EventHandler(this.lancheT_txt_TextChanged);
             this.lancheT_txt.Enter += new System.EventHandler(this.placeholderEnter);
             this.lancheT_txt.Leave += new System.EventHandler(this.placeholderLancheLeave);
             // 
@@ -448,7 +455,7 @@
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(5, 12);
+            this.label9.Location = new System.Drawing.Point(6, 12);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -488,42 +495,42 @@
             this.dispensa_dtgv.AllowUserToResizeColumns = false;
             this.dispensa_dtgv.AllowUserToResizeRows = false;
             this.dispensa_dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dispensa_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dispensa_dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dispensa_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dispensa_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dispensa_dtgv.ColumnHeadersHeight = 25;
             this.dispensa_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dispensa_dtgv.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dispensa_dtgv.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dispensa_dtgv.DefaultCellStyle = dataGridViewCellStyle20;
             this.dispensa_dtgv.GridColor = System.Drawing.SystemColors.GrayText;
             this.dispensa_dtgv.Location = new System.Drawing.Point(0, 0);
             this.dispensa_dtgv.Margin = new System.Windows.Forms.Padding(0);
             this.dispensa_dtgv.Name = "dispensa_dtgv";
             this.dispensa_dtgv.ReadOnly = true;
             this.dispensa_dtgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dispensa_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dispensa_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dispensa_dtgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dispensa_dtgv.RowTemplate.Height = 30;
             this.dispensa_dtgv.Size = new System.Drawing.Size(406, 95);
             this.dispensa_dtgv.TabIndex = 0;
             this.dispensa_dtgv.Resize += new System.EventHandler(this.datagridviewResize);
@@ -536,16 +543,15 @@
             this.acompGuarnLanche_dtgv.AllowUserToResizeRows = false;
             this.acompGuarnLanche_dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.acompGuarnLanche_dtgv.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.acompGuarnLanche_dtgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.acompGuarnLanche_dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.acompGuarnLanche_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.acompGuarnLanche_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.acompGuarnLanche_dtgv.ColumnHeadersHeight = 28;
             this.acompGuarnLanche_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.acompGuarnLanche_dtgv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -554,17 +560,18 @@
             this.acompGuarnLanche_dtgv.Name = "acompGuarnLanche_dtgv";
             this.acompGuarnLanche_dtgv.ReadOnly = true;
             this.acompGuarnLanche_dtgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.acompGuarnLanche_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.acompGuarnLanche_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.acompGuarnLanche_dtgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acompGuarnLanche_dtgv.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acompGuarnLanche_dtgv.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            this.acompGuarnLanche_dtgv.RowTemplate.Height = 30;
             this.acompGuarnLanche_dtgv.Size = new System.Drawing.Size(406, 98);
             this.acompGuarnLanche_dtgv.TabIndex = 1;
             this.acompGuarnLanche_dtgv.Resize += new System.EventHandler(this.datagridviewResize);
@@ -598,22 +605,26 @@
             // clearText_btn
             // 
             this.clearText_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearText_btn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearText_btn.Location = new System.Drawing.Point(529, 303);
             this.clearText_btn.Name = "clearText_btn";
             this.clearText_btn.Size = new System.Drawing.Size(96, 33);
             this.clearText_btn.TabIndex = 12;
             this.clearText_btn.Text = "Limpar";
             this.clearText_btn.UseVisualStyleBackColor = true;
+            this.clearText_btn.Click += new System.EventHandler(this.clearText_btn_Click);
             // 
             // saveData_btn
             // 
             this.saveData_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saveData_btn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveData_btn.Location = new System.Drawing.Point(872, 303);
             this.saveData_btn.Name = "saveData_btn";
             this.saveData_btn.Size = new System.Drawing.Size(96, 33);
             this.saveData_btn.TabIndex = 13;
             this.saveData_btn.Text = "Salvar";
             this.saveData_btn.UseVisualStyleBackColor = true;
+            this.saveData_btn.Click += new System.EventHandler(this.saveData_btn_Click);
             // 
             // filtros_lbl
             // 
@@ -625,21 +636,22 @@
             this.filtros_lbl.TabIndex = 14;
             this.filtros_lbl.Text = "Filtrar";
             // 
-            // comboBox1
+            // diafilter_cbx
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(532, 412);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 15;
+            this.diafilter_cbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.diafilter_cbx.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diafilter_cbx.FormattingEnabled = true;
+            this.diafilter_cbx.Location = new System.Drawing.Point(656, 417);
+            this.diafilter_cbx.Name = "diafilter_cbx";
+            this.diafilter_cbx.Size = new System.Drawing.Size(121, 24);
+            this.diafilter_cbx.TabIndex = 15;
             // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(532, 389);
+            this.label10.Location = new System.Drawing.Point(656, 394);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 20);
             this.label10.TabIndex = 16;
@@ -648,6 +660,7 @@
             // filter_btn
             // 
             this.filter_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.filter_btn.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.filter_btn.Location = new System.Drawing.Point(872, 405);
             this.filter_btn.Name = "filter_btn";
             this.filter_btn.Size = new System.Drawing.Size(96, 33);
@@ -655,12 +668,61 @@
             this.filter_btn.Text = "Filtrar";
             this.filter_btn.UseVisualStyleBackColor = true;
             // 
+            // mesfilter_lbl
+            // 
+            this.mesfilter_lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mesfilter_lbl.AutoSize = true;
+            this.mesfilter_lbl.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mesfilter_lbl.Location = new System.Drawing.Point(529, 394);
+            this.mesfilter_lbl.Name = "mesfilter_lbl";
+            this.mesfilter_lbl.Size = new System.Drawing.Size(39, 20);
+            this.mesfilter_lbl.TabIndex = 19;
+            this.mesfilter_lbl.Text = "Mês:";
+            // 
+            // mesfilter_cbx
+            // 
+            this.mesfilter_cbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mesfilter_cbx.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mesfilter_cbx.FormattingEnabled = true;
+            this.mesfilter_cbx.Location = new System.Drawing.Point(529, 417);
+            this.mesfilter_cbx.Name = "mesfilter_cbx";
+            this.mesfilter_cbx.Size = new System.Drawing.Size(121, 24);
+            this.mesfilter_cbx.TabIndex = 18;
+            this.mesfilter_cbx.SelectedIndexChanged += new System.EventHandler(this.mesfilter_cbx_SelectedIndexChanged);
+            // 
+            // lancheMQntd_txt
+            // 
+            this.lancheMQntd_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lancheMQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lancheMQntd_txt.Location = new System.Drawing.Point(76, 38);
+            this.lancheMQntd_txt.Name = "lancheMQntd_txt";
+            this.lancheMQntd_txt.Size = new System.Drawing.Size(38, 22);
+            this.lancheMQntd_txt.TabIndex = 3;
+            this.lancheMQntd_txt.Text = "qntd...";
+            this.lancheMQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
+            this.lancheMQntd_txt.Leave += new System.EventHandler(this.qntdLeave);
+            // 
+            // lancheTQntd_txt
+            // 
+            this.lancheTQntd_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lancheTQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lancheTQntd_txt.Location = new System.Drawing.Point(193, 38);
+            this.lancheTQntd_txt.Name = "lancheTQntd_txt";
+            this.lancheTQntd_txt.Size = new System.Drawing.Size(40, 22);
+            this.lancheTQntd_txt.TabIndex = 4;
+            this.lancheTQntd_txt.Text = "qntd...";
+            this.lancheTQntd_txt.TextChanged += new System.EventHandler(this.lancheTQntd_txt_TextChanged);
+            this.lancheTQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
+            this.lancheTQntd_txt.Leave += new System.EventHandler(this.qntdLeave);
+            // 
             // DispensaGUI
             // 
             this.ClientSize = new System.Drawing.Size(984, 472);
+            this.Controls.Add(this.mesfilter_lbl);
+            this.Controls.Add(this.mesfilter_cbx);
             this.Controls.Add(this.filter_btn);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.diafilter_cbx);
             this.Controls.Add(this.filtros_lbl);
             this.Controls.Add(this.saveData_btn);
             this.Controls.Add(this.clearText_btn);
@@ -760,9 +822,13 @@
         private System.Windows.Forms.Button clearText_btn;
         private System.Windows.Forms.Button saveData_btn;
         private System.Windows.Forms.Label filtros_lbl;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox diafilter_cbx;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button filter_btn;
+        private System.Windows.Forms.Label mesfilter_lbl;
+        private System.Windows.Forms.ComboBox mesfilter_cbx;
+        private System.Windows.Forms.TextBox lancheTQntd_txt;
+        private System.Windows.Forms.TextBox lancheMQntd_txt;
     }
 }
 

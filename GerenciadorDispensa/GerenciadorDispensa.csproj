@@ -88,6 +88,10 @@
       <Project>{43f007f1-2df7-4fa4-963a-1748bddce63e}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{9e2bd8b5-6c81-4ee0-ada5-d1dd940b8917}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
