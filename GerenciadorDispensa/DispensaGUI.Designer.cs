@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.assist_txt = new System.Windows.Forms.TextBox();
             this.inputs_flyt = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
@@ -64,6 +64,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.sobremesa_txt = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lancheTQntd_txt = new System.Windows.Forms.TextBox();
+            this.lancheMQntd_txt = new System.Windows.Forms.TextBox();
             this.lancheT_txt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lancheM_txt = new System.Windows.Forms.TextBox();
@@ -81,8 +83,7 @@
             this.filter_btn = new System.Windows.Forms.Button();
             this.mesfilter_lbl = new System.Windows.Forms.Label();
             this.mesfilter_cbx = new System.Windows.Forms.ComboBox();
-            this.lancheMQntd_txt = new System.Windows.Forms.TextBox();
-            this.lancheTQntd_txt = new System.Windows.Forms.TextBox();
+            this.dia_lbl = new System.Windows.Forms.Label();
             this.inputs_flyt.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -436,6 +437,31 @@
             this.panel5.Size = new System.Drawing.Size(245, 74);
             this.panel5.TabIndex = 9;
             // 
+            // lancheTQntd_txt
+            // 
+            this.lancheTQntd_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lancheTQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lancheTQntd_txt.Location = new System.Drawing.Point(193, 38);
+            this.lancheTQntd_txt.Name = "lancheTQntd_txt";
+            this.lancheTQntd_txt.Size = new System.Drawing.Size(40, 22);
+            this.lancheTQntd_txt.TabIndex = 4;
+            this.lancheTQntd_txt.Text = "qntd...";
+            this.lancheTQntd_txt.TextChanged += new System.EventHandler(this.lancheTQntd_txt_TextChanged);
+            this.lancheTQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
+            this.lancheTQntd_txt.Leave += new System.EventHandler(this.qntdLeave);
+            // 
+            // lancheMQntd_txt
+            // 
+            this.lancheMQntd_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lancheMQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.lancheMQntd_txt.Location = new System.Drawing.Point(76, 38);
+            this.lancheMQntd_txt.Name = "lancheMQntd_txt";
+            this.lancheMQntd_txt.Size = new System.Drawing.Size(38, 22);
+            this.lancheMQntd_txt.TabIndex = 3;
+            this.lancheMQntd_txt.Text = "qntd...";
+            this.lancheMQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
+            this.lancheMQntd_txt.Leave += new System.EventHandler(this.qntdLeave);
+            // 
             // lancheT_txt
             // 
             this.lancheT_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -496,39 +522,39 @@
             this.dispensa_dtgv.AllowUserToResizeRows = false;
             this.dispensa_dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dispensa_dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dispensa_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dispensa_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dispensa_dtgv.ColumnHeadersHeight = 25;
             this.dispensa_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dispensa_dtgv.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dispensa_dtgv.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dispensa_dtgv.DefaultCellStyle = dataGridViewCellStyle8;
             this.dispensa_dtgv.GridColor = System.Drawing.SystemColors.GrayText;
             this.dispensa_dtgv.Location = new System.Drawing.Point(0, 0);
             this.dispensa_dtgv.Margin = new System.Windows.Forms.Padding(0);
             this.dispensa_dtgv.Name = "dispensa_dtgv";
             this.dispensa_dtgv.ReadOnly = true;
             this.dispensa_dtgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dispensa_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dispensa_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dispensa_dtgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dispensa_dtgv.RowTemplate.Height = 30;
             this.dispensa_dtgv.Size = new System.Drawing.Size(406, 95);
@@ -544,14 +570,14 @@
             this.acompGuarnLanche_dtgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.acompGuarnLanche_dtgv.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.acompGuarnLanche_dtgv.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.acompGuarnLanche_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.acompGuarnLanche_dtgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.acompGuarnLanche_dtgv.ColumnHeadersHeight = 28;
             this.acompGuarnLanche_dtgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.acompGuarnLanche_dtgv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -560,17 +586,17 @@
             this.acompGuarnLanche_dtgv.Name = "acompGuarnLanche_dtgv";
             this.acompGuarnLanche_dtgv.ReadOnly = true;
             this.acompGuarnLanche_dtgv.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.acompGuarnLanche_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.acompGuarnLanche_dtgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.acompGuarnLanche_dtgv.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.acompGuarnLanche_dtgv.RowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.acompGuarnLanche_dtgv.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.acompGuarnLanche_dtgv.RowTemplate.Height = 30;
             this.acompGuarnLanche_dtgv.Size = new System.Drawing.Size(406, 98);
             this.acompGuarnLanche_dtgv.TabIndex = 1;
@@ -690,34 +716,19 @@
             this.mesfilter_cbx.TabIndex = 18;
             this.mesfilter_cbx.SelectedIndexChanged += new System.EventHandler(this.mesfilter_cbx_SelectedIndexChanged);
             // 
-            // lancheMQntd_txt
+            // dia_lbl
             // 
-            this.lancheMQntd_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lancheMQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lancheMQntd_txt.Location = new System.Drawing.Point(76, 38);
-            this.lancheMQntd_txt.Name = "lancheMQntd_txt";
-            this.lancheMQntd_txt.Size = new System.Drawing.Size(38, 22);
-            this.lancheMQntd_txt.TabIndex = 3;
-            this.lancheMQntd_txt.Text = "qntd...";
-            this.lancheMQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
-            this.lancheMQntd_txt.Leave += new System.EventHandler(this.qntdLeave);
-            // 
-            // lancheTQntd_txt
-            // 
-            this.lancheTQntd_txt.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lancheTQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.lancheTQntd_txt.Location = new System.Drawing.Point(193, 38);
-            this.lancheTQntd_txt.Name = "lancheTQntd_txt";
-            this.lancheTQntd_txt.Size = new System.Drawing.Size(40, 22);
-            this.lancheTQntd_txt.TabIndex = 4;
-            this.lancheTQntd_txt.Text = "qntd...";
-            this.lancheTQntd_txt.TextChanged += new System.EventHandler(this.lancheTQntd_txt_TextChanged);
-            this.lancheTQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
-            this.lancheTQntd_txt.Leave += new System.EventHandler(this.qntdLeave);
+            this.dia_lbl.AutoSize = true;
+            this.dia_lbl.Location = new System.Drawing.Point(656, 444);
+            this.dia_lbl.Name = "dia_lbl";
+            this.dia_lbl.Size = new System.Drawing.Size(130, 13);
+            this.dia_lbl.TabIndex = 20;
+            this.dia_lbl.Text = "selecione um mês primeiro";
             // 
             // DispensaGUI
             // 
             this.ClientSize = new System.Drawing.Size(984, 472);
+            this.Controls.Add(this.dia_lbl);
             this.Controls.Add(this.mesfilter_lbl);
             this.Controls.Add(this.mesfilter_cbx);
             this.Controls.Add(this.filter_btn);
@@ -733,7 +744,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1000, 417);
             this.Name = "DispensaGUI";
-            this.Text = "Gerenciador Dispensa - CSPZ";
+            this.Text = " ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.DispensaGUI_Load);
             this.Resize += new System.EventHandler(this.DispensaGUI_Resize);
@@ -829,6 +840,7 @@
         private System.Windows.Forms.ComboBox mesfilter_cbx;
         private System.Windows.Forms.TextBox lancheTQntd_txt;
         private System.Windows.Forms.TextBox lancheMQntd_txt;
+        private System.Windows.Forms.Label dia_lbl;
     }
 }
 

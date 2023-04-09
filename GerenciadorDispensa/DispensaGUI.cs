@@ -43,7 +43,7 @@ namespace GerenciadorDispensa
             retrieve();
         }
 
-
+        //retrieve data from database
         private void retrieve() {
             try
             {
