@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using MySql.Data.MySqlClient;
 using BLL;
 using DTO;
@@ -20,10 +19,12 @@ namespace GerenciadorDispensa
         private CentroBLL c = new CentroBLL();
 
         private Color placeHolderColor = SystemColors.ButtonShadow;
-
+        
         //dataview dynamic size offsets
         private int offsetW = 50;
         private int offsetH = 80;
+
+        private int dispensaID;
       
         public DispensaGUI()
         {
@@ -48,19 +49,12 @@ namespace GerenciadorDispensa
             try
             {
 
-                string query = "select data, assist, colab, total, sobremesa, qntd_sobremesa, proteina, qntd_proteina from tb_dispensa; ";
+                string query = "select date(data) as data, assist, colab, total, sobremesa, qntd_sobremesa, proteina, qntd_proteina from tb_dispensa; ";
 
                 dispensa_dtgv.DataSource = c.consultaComQuery(query, "tb_dispensa");
                 dispensa_dtgv.DataMember = "tb_dispensa";
                 dispensa_dtgv.AutoSize = true;
 
-                query = "select d.data, a.acompanhamento, a.qntd, g.guarnicao, " +
-                    "g.qntd, l.lanche, l.turno, l.qntd from tb_acompanhamento as a " +
-                    "inner join tb_dispensa d inner join tb_guarnicao g inner join tb_lanche l";
-
-                acompGuarnLanche_dtgv.DataSource = c.consultaComQuery(query, "tb_acompanhamento");
-                acompGuarnLanche_dtgv.DataMember = "tb_acompanhamento";
-                acompGuarnLanche_dtgv.AutoSize = true;
 
             }
             catch (Exception ex)
@@ -134,7 +128,7 @@ namespace GerenciadorDispensa
         private void datagridviewResize(object sender, EventArgs e)
         {
             int w = dataview_flyt.Width;
-            int h = dataview_flyt.Height / 2;
+            int h = dataview_flyt.Height;
 
             Control c = (Control)sender;
 
@@ -146,21 +140,47 @@ namespace GerenciadorDispensa
         private void saveData_btn_Click(object sender, EventArgs e)
         {
 
-            if (assist_txt.Text != "" && colab_txt.Text != "" && projet_txt.Text != "" && proteina_txt.Text != "" && proteinaQntd_txt.Text != ""
-                 && sobremesa_txt.Text != "" && sobremesaQntd_txt.Text != "" && acomp_txt.Text != "" && acompQntd_txt.Text != ""
-                 && guarnicao_txt.Text != "" && guarnicaoQntd_txt.Text != "" && lancheM_txt.Text != ""
-                 && lancheMQntd_txt.Text != "" && lancheT_txt.Text != "" && lancheTQntd_txt.Text != ""  && total_txt.Text != "")
+            if (assist_txt.Text != "" && colab_txt.Text != "" && projet_txt.Text != "" && proteina_txt.Text != "" 
+                 && proteinaQntd_txt.Text != ""
+                 && sobremesa_txt.Text != "" && sobremesaQntd_txt.Text != "" 
+                 && (acomp_txt.Text != "" || acomp2_txt.Text != "" || acomp3_txt.Text != "" || acomp4_txt.Text != "")
+                 && (acompQntd_txt.Text != "" || acompQntd2_txt.Text != "" || acompQntd3_txt.Text != "" || acompQntd4_txt.Text != "")
+                 && (guarnicao_txt.Text != "" && guarnicaoQntd_txt.Text != "" || guarnicao2_txt.Text != "" && guarnicaoQntd2_txt.Text != "")
+                 && lancheM_txt.Text != "" && lancheMQntd_txt.Text != "" && lancheT_txt.Text != "" && lancheTQntd_txt.Text != "" 
+                 && total_txt.Text != "")
             {
 
                 try
                 {
                     //conecta e faz o insert no banco de dados
                     //cadastra dispensa
-                    DispensaBLL d = new DispensaBLL();
-                    d.cadastrar(new Dispensa(Convert.ToInt16(assist_txt.Text),
+                    Dispensa d = new Dispensa(Convert.ToInt16(assist_txt.Text),
                         Convert.ToInt16(projet_txt.Text), Convert.ToInt16(colab_txt.Text),
                         Convert.ToInt16(total_txt.Text), proteina_txt.Text, Convert.ToInt16(proteinaQntd_txt.Text),
-                        sobremesa_txt.Text,  Convert.ToInt16(sobremesaQntd_txt.Text) ));
+                        sobremesa_txt.Text, Convert.ToInt16(sobremesaQntd_txt.Text));
+
+                    Acompanhamento[] acomps = {
+                        acomp_txt.Text != "" && acompQntd_txt.Text != "" ? new Acompanhamento(acomp_txt.Text, Convert.ToInt16(acompQntd_txt.Text)) : null,
+                        acomp2_txt.Text != "" && acompQntd2_txt.Text != "" ? new Acompanhamento(acomp2_txt.Text, Convert.ToInt16(acompQntd2_txt.Text)) : null,
+                        acomp3_txt.Text != "" && acompQntd3_txt.Text != "" ? new Acompanhamento(acomp3_txt.Text, Convert.ToInt16(acompQntd3_txt.Text)) : null,
+                        acomp4_txt.Text != "" && acompQntd4_txt.Text != "" ? new Acompanhamento(acomp4_txt.Text, Convert.ToInt16(acompQntd4_txt.Text)) : null
+                    };
+
+
+
+                    Guarnicao[] guarns = {
+                        guarnicao_txt.Text != "" && guarnicaoQntd_txt.Text != "" ? new Guarnicao(guarnicao_txt.Text, Convert.ToInt16(guarnicaoQntd_txt.Text)) : null,
+                        guarnicao2_txt.Text != "" && guarnicaoQntd2_txt.Text != "" ? new Guarnicao(guarnicao2_txt.Text, Convert.ToInt16(guarnicaoQntd2_txt.Text)) : null
+                    };
+
+                    Lanche m = new Lanche(lancheM_txt.Text, "manha", Convert.ToInt16(lancheMQntd_txt.Text));
+                    Lanche t = new Lanche(lancheT_txt.Text, "tarde", Convert.ToInt16(lancheTQntd_txt.Text));
+
+                    c.cadastrarAcompanhamento(acomps);
+                    c.cadastrarDispensa(d);
+                    c.cadastrarGuarnicao(guarns);
+                    c.cadastrarLanche(m);
+                    c.cadastrarLanche(t);
 
                     retrieve();
 
@@ -168,6 +188,14 @@ namespace GerenciadorDispensa
                 catch (MySqlException ex)
                 {
                     MessageBox.Show(ex.StackTrace, "Error ao Inserir!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch(FormatException ex){
+                    MessageBox.Show(ex.StackTrace, "Caractere digitado é invalido!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                catch(Exception ex){
+                    MessageBox.Show(ex.StackTrace, "Error! Contate o desenvolvedor!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
             else
@@ -247,6 +275,29 @@ namespace GerenciadorDispensa
 
         private void lancheT_txt_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void textBox17_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox18_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dispensa_dtgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string data = dispensa_dtgv.Rows[e.RowIndex].Cells[0].Value.ToString().Split(' ')[0];
+
+            
 
         }
     }

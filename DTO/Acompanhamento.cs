@@ -10,11 +10,9 @@ namespace DTO
     {
         public string acompanhamento { get; private set; }
         public int qntd { get; private set; }
-        public int id_dispensa { get; private set; }
-        public Acompanhamento(string acompanhamento, int qntd, int id_dispensa) {
+        public Acompanhamento(string acompanhamento, int qntd) {
             this.acompanhamento = acompanhamento;
             this.qntd = qntd;
-            this.id_dispensa = id_dispensa;
         }
     }
 }

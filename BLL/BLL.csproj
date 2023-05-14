@@ -45,12 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcompanhamentoBLL.cs" />
     <Compile Include="CentroBLL.cs" />
-    <Compile Include="DispensaBLL.cs" />
-    <Compile Include="GuarnicaoBLL.cs" />
-    <Compile Include="ICRUD.cs" />
-    <Compile Include="LancheBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,8 +11,7 @@ use cspz;
 -- ================
 
 create table if not exists tb_dispensa (
-	id int auto_increment primary key,
-    `data` datetime not null,
+    `data` datetime not null primary key,
     assist mediumint not null,
     colab mediumint not null,
     total mediumint not null,

@@ -10,12 +10,12 @@ namespace DTO
     {
         public string guarnicao { private set; get; }
         public int qntd { private set; get; }
-        public int id_dispensa { private set; get; }
-        public Guarnicao(string guarnicao, int qntd, int id_dispensa)
+   
+        public Guarnicao(string guarnicao, int qntd)
         {
             this.guarnicao = guarnicao;
             this.qntd = qntd;
-            this.id_dispensa = id_dispensa;
+        
         }
     }
 }
