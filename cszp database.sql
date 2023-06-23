@@ -1,6 +1,6 @@
 
 
-
+drop database if exists cspz;
 create database cspz
 default charset 'utf8';
 
@@ -11,9 +11,11 @@ use cspz;
 -- ================
 
 create table if not exists tb_dispensa (
-    `data` datetime not null primary key,
+	id int not null auto_increment primary key,
+    `data` datetime default current_timestamp,
     assist mediumint not null,
     colab mediumint not null,
+    projet mediumint not null,
     total mediumint not null,
 	proteina varchar(150) not null,
     qntd_proteina mediumint not null,
@@ -23,27 +25,24 @@ create table if not exists tb_dispensa (
 
 create table if not exists tb_acompanhamento  (
 	id int auto_increment primary key,
+	`data` datetime default current_timestamp,
     acompanhamento varchar(150) not null,
-    qntd mediumint not null,
-    id_dispensa int,
-    foreign key (id_dispensa) references tb_dispensa(id)
+    qntd mediumint not null
 );
 
 create table if not exists tb_guarnicao (
 	id int auto_increment primary key,
+	`data` datetime default current_timestamp,
     guarnicao varchar(150) not null,
-    qntd mediumint not null,
-       id_dispensa int,
-	foreign key (id_dispensa) references tb_dispensa(id)
+    qntd mediumint not null
 );
 
 create table if not exists tb_lanche (
 	id int auto_increment primary key,
+	`data` datetime default current_timestamp,
     lanche varchar(150) not null,
     turno varchar(50) not null,
-    qntd mediumint not null,
-       id_dispensa int,
-	foreign key (id_dispensa) references tb_dispensa(id)
+    qntd mediumint not null
 );
 
 -- ================
@@ -53,25 +52,25 @@ create table if not exists tb_lanche (
 insert into tb_dispensa 
 (assist, colab, total, proteina, qntd_proteina, sobremesa, qntd_sobremesa)
 values
-(3, 10, 15, 'carne', 3, 'bolo', 5),
-(4, 11, 16, 'carne', 3, 'bolo', 5),
-(5, 12, 17, 'carne', 3, 'bolo', 5);
+(3, 10, 2, 15, 'carne', 3, 'bolo', 5),
+(4, 11, 3, 16, 'carne', 3, 'bolo', 5),
+(5, 12, 5, 17, 'carne', 3, 'bolo', 5);
 
 INSERT INTO `tb_acompanhamento` 
-(`id`, `acompanhamento`, `qntd`, `id_dispensa`) 
+( `acompanhamento`, `qntd`) 
 VALUES 
-(NULL, 'arroz', '3', '1');
+( 'arroz', '3');
 
 insert into  tb_guarnicao
-(guarnicao, qntd, id_dispensa)
+(guarnicao, qntd)
 values
-('guarnicao', 32, 1);
+('guarnicao', 32);
 
 insert into  tb_lanche
-(lanche, turno, qntd, id_dispensa)
+(lanche, turno, qntd)
 values
-('sanduiche', 'manha', 32, 1),
-('pao de sal', 'tade', 20, 1);
+('sanduiche', 'manha', 32),
+('pao de sal', 'tade', 20);
 
 -- ================
 -- SELECT 

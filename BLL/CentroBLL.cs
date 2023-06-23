@@ -20,7 +20,11 @@ namespace BLL
 
         public DataSet consultaPorData(DateTime data)
         {
-            throw new NotImplementedException();
+            string sqlFormattedDate = data.ToString("yyyy-MM-dd"); 
+            string query = "select * from tb_acompanhamento where `data` between '"+ sqlFormattedDate + " 00' and '" +
+                sqlFormattedDate + " 23'";
+
+            return BDAccess.Retrieve(query, "tb_acompanhamento");
         }
         public DataSet consultaPorDia(int dia)
         {
@@ -38,20 +42,45 @@ namespace BLL
         }
 
         public void cadastrarDispensa(Dispensa d) {
-            string query = "insert into tb_dispensa " +
-          "( assist, colab, total, proteina, qntd_proteina, sobremesa, qntd_sobremesa) " +
-          "values " +
-          "( @assist, @colab, @total, @proteina, @qntd_proteina, @sobremesa, @qntd_sobremesa)";
 
-            MySqlCommand cmd = new MySqlCommand(query);
+            string query;
+            MySqlCommand cmd;
 
-            cmd.Parameters.Add("@assist", MySqlDbType.UInt32).Value = Convert.ToInt32(d.assist);
-            cmd.Parameters.Add("@colab", MySqlDbType.UInt32).Value = Convert.ToInt32(d.colab);
-            cmd.Parameters.Add("@total", MySqlDbType.UInt32).Value = Convert.ToInt32(d.total);
-            cmd.Parameters.Add("@proteina", MySqlDbType.String).Value = d.proteina;
-            cmd.Parameters.Add("@qntd_proteina", MySqlDbType.Int32).Value = Convert.ToInt32(d.proteinaQntd);
-            cmd.Parameters.Add("@sobremesa", MySqlDbType.String).Value = d.sobremesa;
-            cmd.Parameters.Add("@qntd_sobremesa", MySqlDbType.UInt32).Value = Convert.ToInt32(d.sobremesaQntd);
+            if (d.sobremesa == null) {
+                query = "insert into tb_dispensa " +
+                "( assist, colab, projet, total) " +
+                "values " +
+                "( @assist, @colab, @projet, @total)";
+
+                cmd = new MySqlCommand(query);
+
+                cmd.Parameters.Add("@assist", MySqlDbType.UInt32).Value = Convert.ToInt32(d.assist);
+                cmd.Parameters.Add("@colab", MySqlDbType.UInt32).Value = Convert.ToInt32(d.colab);
+                cmd.Parameters.Add("@projet", MySqlDbType.UInt32).Value = Convert.ToInt32(d.projet);
+                cmd.Parameters.Add("@total", MySqlDbType.UInt32).Value = Convert.ToInt32(d.total);
+
+            }
+            else
+            {
+                query = "insert into tb_dispensa " +
+                "( assist, colab, projet, total, proteina, qntd_proteina, sobremesa, qntd_sobremesa) " +
+                "values " +
+                "( @assist, @colab, @projet, @total, @proteina, @qntd_proteina, @sobremesa, @qntd_sobremesa)";
+
+           cmd = new MySqlCommand(query);
+
+                cmd.Parameters.Add("@assist", MySqlDbType.UInt32).Value = Convert.ToInt32(d.assist);
+                cmd.Parameters.Add("@colab", MySqlDbType.UInt32).Value = Convert.ToInt32(d.colab);
+                cmd.Parameters.Add("@projet", MySqlDbType.UInt32).Value = Convert.ToInt32(d.projet);
+                cmd.Parameters.Add("@total", MySqlDbType.UInt32).Value = Convert.ToInt32(d.total);
+                cmd.Parameters.Add("@proteina", MySqlDbType.String).Value = d.proteina;
+                cmd.Parameters.Add("@qntd_proteina", MySqlDbType.Int32).Value = Convert.ToInt32(d.proteinaQntd);
+                cmd.Parameters.Add("@sobremesa", MySqlDbType.String).Value = d.sobremesa;
+                cmd.Parameters.Add("@qntd_sobremesa", MySqlDbType.UInt32).Value = Convert.ToInt32(d.sobremesaQntd);
+            }
+   
+
+          
 
             BDAccess.insert(cmd);
         }

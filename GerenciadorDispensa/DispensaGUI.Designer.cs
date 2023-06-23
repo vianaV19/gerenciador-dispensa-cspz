@@ -508,7 +508,7 @@
             this.lancheTQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lancheTQntd_txt.Location = new System.Drawing.Point(79, 120);
             this.lancheTQntd_txt.Name = "lancheTQntd_txt";
-            this.lancheTQntd_txt.Size = new System.Drawing.Size(40, 22);
+            this.lancheTQntd_txt.Size = new System.Drawing.Size(54, 22);
             this.lancheTQntd_txt.TabIndex = 20;
             this.lancheTQntd_txt.Text = "qntd...";
             this.lancheTQntd_txt.TextChanged += new System.EventHandler(this.lancheTQntd_txt_TextChanged);
@@ -547,7 +547,7 @@
             this.lancheMQntd_txt.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.lancheMQntd_txt.Location = new System.Drawing.Point(79, 92);
             this.lancheMQntd_txt.Name = "lancheMQntd_txt";
-            this.lancheMQntd_txt.Size = new System.Drawing.Size(38, 22);
+            this.lancheMQntd_txt.Size = new System.Drawing.Size(54, 22);
             this.lancheMQntd_txt.TabIndex = 18;
             this.lancheMQntd_txt.Text = "qntd...";
             this.lancheMQntd_txt.Enter += new System.EventHandler(this.qntdEnter);
